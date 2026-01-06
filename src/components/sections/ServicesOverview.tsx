@@ -6,6 +6,7 @@ import {
   Cloud,
   Palette,
   Database,
+  Brain,
   Shield,
   ArrowRight,
 } from "lucide-react";
@@ -27,6 +28,13 @@ const services = [
     color: "bg-green-500/10 text-green-600",
   },
   {
+    icon: Brain,
+    title: "AI Automation",
+    description:
+      "Automate workflows and business processes with intelligent AI-driven solutions for efficiency and scalability.",
+    color: "bg-cyan-500/10 text-cyan-600",
+  },
+  {
     icon: Cloud,
     title: "Cloud Solutions",
     description:
@@ -46,13 +54,6 @@ const services = [
     description:
       "Robust database solutions designed for performance, security, and seamless scaling.",
     color: "bg-orange-500/10 text-orange-600",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity",
-    description:
-      "Comprehensive security solutions to protect your digital assets and customer data.",
-    color: "bg-red-500/10 text-red-600",
   },
 ];
 

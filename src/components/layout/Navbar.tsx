@@ -62,7 +62,7 @@ export function Navbar() {
                 "link-underline text-sm font-medium transition-colors duration-200",
                 location.pathname === link.path
                   ? "text-accent"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-accent"
               )}
             >
               {link.name}

@@ -6,33 +6,39 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const featuredProjects = [
   {
     id: 1,
-    title: "HealthTech Dashboard",
-    category: "Healthcare",
+    title: "Amorra AI Companion App",
+    category: "AI / Mental Wellness",
     description:
-      "A comprehensive patient management system with real-time analytics and secure data handling.",
+      "A privacy-focused AI companion app providing emotional support, personalized conversations, and daily suggestions for users aged 50+.",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "PostgreSQL"],
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    tags: ["Flutter", "Firebase Auth", "Firestore", "Stripe", "GetX"],
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    category: "Retail",
+    title: "Applicant Tracking System (ATS)",
+    category: "HR Tech / Recruitment",
     description:
-      "Scalable online marketplace with advanced search, inventory management, and seamless checkout.",
+      "A role-based recruitment management system built with Flutter Web and Firebase, enabling job postings, application tracking, and document validation workflows.",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-    tags: ["Next.js", "Stripe", "MongoDB"],
+      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
+    tags: [
+      "Flutter Web",
+      "GetX",
+      "Firebase Auth",
+      "Firestore",
+      "Cloud Functions",
+    ],
   },
   {
     id: 3,
-    title: "FinanceFlow App",
-    category: "Finance",
+    title: "Elegant Advisors Web App",
+    category: "Business Website",
     description:
-      "Mobile-first financial tracking application with AI-powered insights and budget recommendations.",
+      "A Flutter web application designed to provide an elegant online showcase for the Elegant Advisors platform.",
     image:
       "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80",
-    tags: ["React Native", "Python", "AWS"],
+    tags: ["Flutter", "Dart", "Web"],
   },
 ];
 
@@ -57,7 +63,7 @@ export function ProjectsPreview() {
             </h2>
           </div>
           <Button
-            variant="outline"
+            variant="accent"
             size="lg"
             asChild
             className="self-start md:self-auto"
@@ -86,19 +92,20 @@ export function ProjectsPreview() {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4">
-                  <span className="text-primary-foreground flex items-center gap-1 text-sm font-medium">
-                    View Case Study <ExternalLink size={14} />
-                  </span>
+              <Link to={"/portfolio"} className="group block">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4">
+                    <span className="text-primary-foreground flex items-center gap-1 text-sm font-medium">
+                      View Case Study <ExternalLink size={14} />
+                    </span>
+                  </div>
                 </div>
-              </div>
-
+              </Link>
               {/* Content */}
               <div className="p-6">
                 <span className="text-accent text-sm font-medium">

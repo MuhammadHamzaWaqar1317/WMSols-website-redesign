@@ -10,27 +10,77 @@ const categories = ["All", "Full Stack", "MERN", "Web App", "API", "Mobile"];
 const portfolioProjects = [
   {
     id: 1,
-    title: "TaskFlow Pro",
-    category: "Full Stack",
+    title: "Amorra AI",
+    category: "Mobile",
     description:
-      "A comprehensive project management tool with real-time collaboration, Kanban boards, and team analytics. Features include drag-and-drop task management, deadline tracking, and performance insights.",
+      "An AI-powered emotional companion app designed for men 50+, offering empathetic conversations, daily prompts, and a personalized experience in a secure and private environment.",
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "MongoDB", "Socket.io", "Redux"],
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    tags: ["Flutter", "Firebase", "Stripe", "GetX", "AI"],
     problem:
-      "Teams struggled with fragmented communication and task visibility across multiple platforms.",
+      "Men aged 50+ often experience loneliness and lack accessible, private emotional support and meaningful conversation platforms.",
     solution:
-      "Built a unified platform with real-time updates, intuitive Kanban boards, and comprehensive analytics.",
+      "Built a secure AI companion app that offers empathetic, personalized conversations with privacy-first architecture and simple, intuitive UX.",
     challenges: [
-      "Real-time sync across devices",
-      "Offline support",
-      "Complex permission system",
+      "Maintaining conversational context across sessions",
+      "Ensuring user privacy and data encryption",
+      "Building a simple and accessible UI for older users",
+      "Integrating subscriptions with Stripe securely",
     ],
-    github: "#",
+    github: "https://github.com/wmtechdev/amorra",
     demo: "#",
   },
   {
     id: 2,
+    title: "ATS – Applicant Tracking System",
+    category: "Mobile",
+    description:
+      "A comprehensive Flutter web-based Applicant Tracking System that streamlines recruitment workflows, enabling candidates to apply for jobs and administrators to manage job postings, documents, and application statuses efficiently.",
+    image:
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80",
+    tags: [
+      "Flutter Web",
+      "Firebase",
+      "GetX",
+      "Clean Architecture",
+      "Firestore",
+    ],
+    problem:
+      "Recruitment teams struggled with fragmented hiring processes, manual document handling, and lack of visibility into application and document statuses.",
+    solution:
+      "Built a centralized recruitment platform with separate candidate and admin portals, automated document validation, real-time status tracking, and role-based access control.",
+    challenges: [
+      "Designing role-based access control for multiple user types",
+      "Implementing document validation and approval workflows",
+      "Maintaining Clean Architecture separation across layers",
+      "Ensuring scalable Firestore data modeling",
+    ],
+    github: "https://github.com/wmtechdev/ats",
+    demo: "#",
+  },
+  {
+    id: 3,
+    title: "Elegant Advisors Website",
+    category: "Mobile",
+    description:
+      "A Flutter web application serving as the online presence for Elegant Advisors, implemented using modern Flutter tooling and structured for web deployment.",
+    image:
+      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80",
+    tags: ["Flutter", "Dart", "Web", "Responsive UI"],
+    problem:
+      "Elegant Advisors needed a web platform to showcase services and provide a professional online presence.",
+    solution:
+      "Built a Flutter-based web application to deliver a responsive, cross-platform front-end that can easily be deployed and maintained.",
+    challenges: [
+      "Implementing web-friendly Flutter layout",
+      "Managing assets and routing for a web deployment",
+      "Ensuring performance on multiple devices",
+    ],
+    github: "https://github.com/wmtechdev/elegant_advisors",
+    demo: "#",
+  },
+  {
+    id: 4,
     title: "CryptoTracker Dashboard",
     category: "MERN",
     description:
@@ -51,7 +101,7 @@ const portfolioProjects = [
     demo: "#",
   },
   {
-    id: 3,
+    id: 5,
     title: "RecipeHub Social",
     category: "Web App",
     description:
@@ -72,7 +122,7 @@ const portfolioProjects = [
     demo: "#",
   },
   {
-    id: 4,
+    id: 6,
     title: "DevConnect API",
     category: "API",
     description:
@@ -93,7 +143,7 @@ const portfolioProjects = [
     demo: "#",
   },
   {
-    id: 5,
+    id: 7,
     title: "FitTrack Mobile",
     category: "Mobile",
     description:
@@ -114,7 +164,7 @@ const portfolioProjects = [
     demo: "#",
   },
   {
-    id: 6,
+    id: 8,
     title: "BlogCMS Platform",
     category: "Full Stack",
     description:
@@ -178,6 +228,13 @@ export default function Portfolio() {
             }`}
           >
             <Filter size={20} className="text-muted-foreground" />
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={cn()}
+              ></button>
+            ))}
             {categories.map((category) => (
               <button
                 key={category}
