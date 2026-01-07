@@ -373,7 +373,7 @@ export default function Portfolio() {
                 Get in Touch
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="default" size="lg" asChild>
               <a href="#" className="group">
                 <Github size={18} className="mr-2" />
                 View GitHub

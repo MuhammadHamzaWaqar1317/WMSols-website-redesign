@@ -50,32 +50,28 @@ const values = [
 
 const team = [
   {
-    name: "Alex Johnson",
+    name: "Farhan Waheed",
     role: "Founder & CEO",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
+    image: "/images/farhan-ceo.jpeg",
     bio: "15+ years in software development. Former Tech Lead at Google.",
   },
   {
-    name: "Sarah Chen",
+    name: "Talha Mukati",
     role: "CTO",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+    image: "/images/talha-cto.jpg",
     bio: "Full-stack expert. Previously at Microsoft and Amazon.",
   },
   {
-    name: "Michael Torres",
-    role: "Lead Designer",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
-    bio: "Award-winning designer with a passion for user experience.",
+    name: "Muhammad Usama Bilal",
+    role: "Head of Operations",
+    image: "/images/Usama.jpeg",
+    bio: "An executive in charge of the daily operations of an organization. After the CEO, and report directly to them, acting on their behalf in their absence.",
   },
   {
-    name: "Emily Park",
-    role: "Project Manager",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
-    bio: "PMP certified. Expert in agile methodologies.",
+    name: "Fahad Khan",
+    role: "HR Manager",
+    image: "/images/fahad-hr.jpg",
+    bio: "Experienced HR professional specializing in talent acquisition, employee engagement, and organizational development.",
   },
 ];
 
