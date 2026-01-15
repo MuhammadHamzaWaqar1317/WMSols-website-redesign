@@ -14,18 +14,19 @@ import {
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
+import { API_BASE_URL } from "@/config/api";
 
 const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    value: "hello@wmsols.com",
+    value: "info@wmsols.com",
     description: "We'll respond within 24 hours",
   },
   {
     icon: Phone,
     title: "Call Us",
-    value: "+1 (555) 123-4567",
+    value: "+1 (505) 386-1888",
     description: "Mon-Fri, 9am-6pm EST",
   },
   {
@@ -58,22 +59,46 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch(`${API_BASE_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
 
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      const result = await response.json();
 
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      subject: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      if (!result.success) throw new Error(result.error || "Mail failed");
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (

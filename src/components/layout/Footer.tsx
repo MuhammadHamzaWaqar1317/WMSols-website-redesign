@@ -101,13 +101,13 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Mail size={18} className="mt-1 text-accent" />
                 <span className="text-primary-foreground/70">
-                  hello@wmsols.com
+                  info@wmsols.com
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={18} className="mt-1 text-accent" />
                 <span className="text-primary-foreground/70">
-                  +1 (555) 123-4567
+                  +1 (505) 386-1888
                 </span>
               </li>
               <li className="flex items-start gap-3">

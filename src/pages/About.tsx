@@ -51,13 +51,13 @@ const values = [
 const team = [
   {
     name: "Farhan Waheed",
-    role: "Founder & CEO",
+    role: "Co-Founder & CEO",
     image: "/images/farhan-ceo.jpeg",
     bio: "15+ years in software development. Former Tech Lead at Google.",
   },
   {
     name: "Talha Mukati",
-    role: "CTO",
+    role: "Co-Founder & CTO",
     image: "/images/talha-cto.jpg",
     bio: "Full-stack expert. Previously at Microsoft and Amazon.",
   },
