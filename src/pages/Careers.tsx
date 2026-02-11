@@ -34,8 +34,14 @@ interface Job {
   location: string;
   type: string;
   category: string;
+
   description: string;
+
+  overview: string;
+  responsibilities: string[];
+  requirements: string[];
   skills?: string[];
+  perks?: string[];
 }
 
 // Hero Section
@@ -51,7 +57,7 @@ function HeroSection() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const elements = heroRef.current?.querySelectorAll(".animate-on-scroll");
@@ -286,63 +292,177 @@ function OpenPositionsSection() {
   const positions: Job[] = [
     {
       id: "1",
-      title: "Senior Full-Stack Developer",
-      location: "Remote",
-      type: "Full-Time",
+      title: "Full Stack Developer Intern",
+      location: "On-site / Remote",
+      type: "Internship",
       category: "Engineering",
+
       description:
-        "Lead the development of scalable web applications using React, Node.js, and cloud technologies. Mentor junior developers and drive technical decisions.",
-      skills: ["React", "Node.js", "TypeScript", "AWS"],
+        "Work on real-world web applications while learning full-stack development alongside experienced engineers.",
+
+      overview:
+        "As a Full Stack Developer Intern at WMSols, you will gain hands-on experience building scalable web applications and collaborating with a professional development team.",
+
+      responsibilities: [
+        "Assist in developing frontend interfaces using modern frameworks",
+        "Work on backend APIs and database integration",
+        "Debug, test, and optimize applications",
+        "Collaborate with designers and senior developers",
+        "Follow best coding practices and standards",
+      ],
+
+      requirements: [
+        "Basic knowledge of HTML, CSS, and JavaScript",
+        "Familiarity with any frontend or backend framework is a plus",
+        "Understanding of APIs and databases",
+        "Strong problem-solving skills",
+        "Eagerness to learn and grow",
+      ],
+
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "APIs",
+        "Databases",
+        "Problem Solving",
+      ],
+
+      perks: [
+        "Hands-on industry experience",
+        "Mentorship from senior developers",
+        "Flexible work environment",
+        "Certificate upon completion",
+      ],
     },
+
     {
       id: "2",
-      title: "UI/UX Designer",
-      location: "Hybrid - Lahore",
-      type: "Full-Time",
-      category: "Design",
+      title: "AI Engineer Intern",
+      location: "On-site / Remote",
+      type: "Internship",
+      category: "AI / Machine Learning",
+
       description:
-        "Create beautiful, intuitive user experiences for our clients. Work closely with developers to bring designs to life with pixel-perfect precision.",
-      skills: ["Figma", "Adobe XD", "Prototyping"],
+        "Work with AI/ML models and data-driven solutions to solve real-world business problems.",
+
+      overview:
+        "The AI Engineer Intern role at WMSols is ideal for candidates passionate about artificial intelligence, machine learning, and applied data science.",
+
+      responsibilities: [
+        "Assist in developing and training AI/ML models",
+        "Work with datasets for preprocessing and analysis",
+        "Implement AI solutions for business use cases",
+        "Research new AI techniques and tools",
+        "Support testing and model optimization",
+      ],
+
+      requirements: [
+        "Basic understanding of AI, ML, or Data Science",
+        "Familiarity with Python and related libraries",
+        "Knowledge of data handling and model evaluation",
+        "Analytical mindset and curiosity",
+      ],
+
+      skills: [
+        "Python",
+        "Machine Learning",
+        "Data Analysis",
+        "AI Models",
+        "Problem Solving",
+      ],
+
+      perks: [
+        "Exposure to real AI projects",
+        "Learning-oriented environment",
+        "Mentorship from AI professionals",
+      ],
     },
+
     {
       id: "3",
-      title: "DevOps Engineer",
-      location: "Remote",
-      type: "Full-Time",
-      category: "Engineering",
+      title: "Business Development Executive (BDE) Intern",
+      location: "On-site",
+      type: "Internship",
+      category: "Business Development",
+
       description:
-        "Build and maintain CI/CD pipelines, manage cloud infrastructure, and ensure high availability of our production systems.",
-      skills: ["Docker", "Kubernetes", "AWS"],
+        "Support business growth through sales, lead generation, and client communication in the tech industry.",
+
+      overview:
+        "As a BDE Intern at WMSols, you will gain hands-on experience in sales, marketing, and client relationship management within a fast-growing tech company.",
+
+      responsibilities: [
+        "Identify potential clients and market opportunities",
+        "Assist in lead generation and outreach",
+        "Communicate with clients via email, calls, and social platforms",
+        "Prepare proposals and presentations",
+        "Conduct market and competitor research",
+      ],
+
+      requirements: [
+        "Strong communication and interpersonal skills",
+        "Interest in sales, marketing, or business development",
+        "Basic understanding of IT services is a plus",
+        "Self-motivated and goal-oriented mindset",
+      ],
+
+      skills: [
+        "Communication",
+        "Lead Generation",
+        "Sales",
+        "Market Research",
+        "Client Handling",
+      ],
+
+      perks: [
+        "Real-world sales experience",
+        "Client exposure",
+        "Career growth opportunities",
+      ],
     },
+
     {
       id: "4",
-      title: "Project Manager",
-      location: "On-site - Karachi",
-      type: "Full-Time",
-      category: "Management",
+      title: "HR Intern",
+      location: "On-site",
+      type: "Internship",
+      category: "Human Resources",
+
       description:
-        "Coordinate cross-functional teams, manage client relationships, and ensure successful delivery of digital projects.",
-      skills: ["Agile", "Scrum", "Jira"],
-    },
-    {
-      id: "5",
-      title: "Junior React Developer",
-      location: "Remote",
-      type: "Full-Time",
-      category: "Engineering",
-      description:
-        "Join our frontend team to build modern web applications. Great opportunity for developers with 1-2 years of React experience.",
-      skills: ["React", "JavaScript", "CSS"],
-    },
-    {
-      id: "6",
-      title: "Content Writer",
-      location: "Remote",
-      type: "Part-Time",
-      category: "Marketing",
-      description:
-        "Create compelling content for our blog, case studies, and marketing materials. Tech industry experience preferred.",
-      skills: ["SEO", "Copywriting", "Research"],
+        "Assist HR operations including recruitment, onboarding, and employee engagement activities.",
+
+      overview:
+        "The HR Intern role at WMSols provides exposure to core human resource functions and professional workplace practices.",
+
+      responsibilities: [
+        "Assist in recruitment and onboarding processes",
+        "Screen resumes and coordinate interviews",
+        "Maintain employee records and documentation",
+        "Support HR policies and internal communication",
+        "Help organize training and engagement activities",
+      ],
+
+      requirements: [
+        "Interest in Human Resource Management",
+        "Strong organizational and communication skills",
+        "Basic understanding of HR processes is a plus",
+        "Professional attitude and confidentiality awareness",
+      ],
+
+      skills: [
+        "Recruitment",
+        "Communication",
+        "Organization",
+        "HR Operations",
+        "Confidentiality",
+      ],
+
+      perks: [
+        "Exposure to HR operations",
+        "Professional work environment",
+        "Learning & development opportunities",
+      ],
     },
   ];
 
@@ -382,7 +502,7 @@ function OpenPositionsSection() {
                 "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200",
                 filter === category
                   ? "bg-accent text-accent-foreground shadow-glow"
-                  : "bg-card text-muted-foreground hover:bg-secondary hover:text-foreground shadow-card"
+                  : "bg-card text-muted-foreground hover:bg-secondary hover:text-foreground shadow-card",
               )}
             >
               {category}
@@ -394,7 +514,10 @@ function OpenPositionsSection() {
         <div className="space-y-4">
           {filteredPositions.map((position) => (
             <GlowingCard key={position.id} className="p-6 md:p-8">
-              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+              <div
+                onClick={() => handleApplyClick(position)}
+                className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 cursor-pointer"
+              >
                 <div className="flex-1">
                   <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
                     {position.title}
@@ -464,31 +587,27 @@ function TestimonialsSection() {
 
   const testimonials = [
     {
-      name: "Sarah Ahmed",
-      role: "Senior Developer",
+      name: "Ali Farqleet",
+      role: "Business Developer Executive",
       tenure: "3 years at WMSols",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-      quote:
-        "Joining WMSols was the best career decision I've made. The team is incredibly supportive, and I've grown more in three years here than in my entire previous career. The projects are challenging but rewarding.",
+      image: "/images/ali-farqaleet.jpeg",
+      quote: "  A space for people who want to grow inter-dependently",
     },
     {
-      name: "Ahmed Khan",
-      role: "UI/UX Designer",
+      name: "Mubeen Bhatti",
+      role: "Flutter Developer",
       tenure: "2 years at WMSols",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      image: "/images/mubeen.jpeg",
       quote:
-        "The creative freedom I have here is unmatched. WMSols trusts its designers to push boundaries and try new things. Plus, the work-life balance is genuinely respected—not just talked about.",
+        "At WMSols, my Flutter growth is built on ownership, responsibility, and real product execution.",
     },
     {
-      name: "Fatima Malik",
-      role: "Project Manager",
+      name: "Faraz Khan",
+      role: "AI Engineer",
       tenure: "4 years at WMSols",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      image: "/images/faraz.jpeg",
       quote:
-        "What sets WMSols apart is the genuine care for employee wellbeing. From flexible hours to mental health days, they walk the talk. I've never felt more valued in my professional life.",
+        "A great place to learn, collaborate, strategize and contribute to impactful projects.",
     },
   ];
 
@@ -498,7 +617,7 @@ function TestimonialsSection() {
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
   };
 
@@ -559,7 +678,7 @@ function TestimonialsSection() {
                       "w-2.5 h-2.5 rounded-full transition-all duration-200",
                       currentIndex === index
                         ? "bg-accent w-8"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50",
                     )}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />

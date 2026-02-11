@@ -19,8 +19,14 @@ interface Job {
   location: string;
   type: string;
   category: string;
+
   description: string;
+
+  overview: string;
+  responsibilities: string[];
+  requirements: string[];
   skills?: string[];
+  perks?: string[];
 }
 
 interface JobApplyFormProps {
@@ -78,139 +84,187 @@ export function JobApplyForm({ job, isOpen, onClose }: JobApplyFormProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
         {isSubmitted ? (
+          // ✅ SUCCESS STATE
           <div className="py-12 text-center">
             <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-3">
+            <h3 className="font-heading text-2xl font-bold mb-3">
               Application Submitted!
             </h3>
             <p className="text-muted-foreground mb-6">
-              Thank you for applying to <strong>{job.title}</strong>. We'll
-              review your application and get back to you within 5-7 business
-              days.
+              Thank you for applying to <strong>{job.title}</strong>. We’ll get
+              back to you within 5–7 business days.
             </p>
             <Button onClick={handleClose}>Close</Button>
           </div>
         ) : (
           <>
+            {/* 🔹 HEADER */}
             <DialogHeader>
-              <DialogTitle className="font-heading text-xl">
-                Apply for Position
+              <DialogTitle className="font-heading text-2xl">
+                {job.title}
               </DialogTitle>
               <DialogDescription>
-                Submit your application for the role below.
+                {job.location} • {job.type} • {job.category}
               </DialogDescription>
             </DialogHeader>
 
-            {/* Job Info */}
-            <div className="bg-secondary/50 rounded-lg p-4 mb-6">
-              <h4 className="font-semibold text-foreground mb-1">
-                {job.title}
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                {job.location} • {job.type}
+            {/* 🔹 OVERVIEW */}
+            <section className="mt-4 space-y-2">
+              <h4 className="font-semibold text-foreground">Overview</h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {job.overview}
               </p>
-            </div>
+            </section>
+
+            {/* 🔹 RESPONSIBILITIES */}
+            <section className="mt-5 space-y-2">
+              <h4 className="font-semibold text-foreground">
+                Responsibilities
+              </h4>
+              <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                {job.responsibilities.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            {/* 🔹 REQUIREMENTS */}
+            <section className="mt-5 space-y-2">
+              <h4 className="font-semibold text-foreground">Requirements</h4>
+              <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                {job.requirements.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            {/* 🔹 SKILLS */}
+            {job.skills && job.skills.length > 0 && (
+              <section className="mt-5 space-y-2">
+                <h4 className="font-semibold text-foreground">Skills</h4>
+                <div className="flex flex-wrap gap-2">
+                  {job.skills.map((skill, i) => (
+                    <span
+                      key={i}
+                      className="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* 🔹 PERKS */}
+            {job.perks && job.perks.length > 0 && (
+              <section className="mt-5 space-y-2">
+                <h4 className="font-semibold text-foreground">
+                  What You’ll Get
+                </h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                  {job.perks.map((perk, i) => (
+                    <li key={i}>{perk}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 🔹 DIVIDER */}
+            <div className="border-t my-6" />
+
+            {/* 🔹 APPLICATION FORM */}
+            <h3 className="font-heading text-lg font-semibold mb-4">
+              Apply for this position
+            </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Name */}
               <div className="space-y-2">
                 <Label htmlFor="apply-name">Full Name *</Label>
                 <Input
                   id="apply-name"
-                  type="text"
-                  placeholder="John Doe"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
                   required
-                  className="bg-background"
                 />
               </div>
 
+              {/* Email */}
               <div className="space-y-2">
                 <Label htmlFor="apply-email">Email Address *</Label>
                 <Input
                   id="apply-email"
                   type="email"
-                  placeholder="john@example.com"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
-                  className="bg-background"
                 />
               </div>
 
+              {/* Resume */}
               <div className="space-y-2">
-                <Label htmlFor="apply-resume">Upload Resume *</Label>
+                <Label>Upload Resume *</Label>
                 <div
                   className={cn(
-                    "relative border-2 border-dashed rounded-lg p-6 text-center transition-colors cursor-pointer",
+                    "relative border-2 border-dashed rounded-lg p-6 text-center cursor-pointer",
                     resume
                       ? "border-accent bg-accent/5"
-                      : "border-border hover:border-accent/50 hover:bg-secondary/50"
+                      : "border-border hover:border-accent/50",
                   )}
                 >
                   <input
-                    id="apply-resume"
                     type="file"
                     accept=".pdf,.doc,.docx"
                     onChange={handleFileChange}
                     required
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    className="absolute inset-0 opacity-0 cursor-pointer"
                   />
+
                   {resume ? (
                     <div className="flex items-center justify-center gap-2">
                       <CheckCircle className="w-5 h-5 text-accent" />
-                      <span className="text-sm text-foreground font-medium">
-                        {resume.name}
-                      </span>
+                      <span className="text-sm">{resume.name}</span>
                       <button
                         type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setResume(null);
-                        }}
-                        className="ml-2 p-1 rounded-full hover:bg-secondary"
+                        onClick={() => setResume(null)}
+                        className="p-1 rounded hover:bg-secondary"
                       >
                         <X className="w-4 h-4 text-muted-foreground" />
                       </button>
                     </div>
                   ) : (
                     <>
-                      <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                      <Upload className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
                       <p className="text-sm text-muted-foreground">
-                        Click to upload or drag and drop
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        PDF, DOC, DOCX (Max 5MB)
+                        Click or drag to upload (PDF, DOC, DOCX)
                       </p>
                     </>
                   )}
                 </div>
               </div>
 
+              {/* Message */}
               <div className="space-y-2">
-                <Label htmlFor="apply-message">
-                  Cover Letter / Message (Optional)
-                </Label>
+                <Label>Cover Letter / Message (Optional)</Label>
                 <textarea
-                  id="apply-message"
-                  placeholder="Tell us why you're interested in this role..."
+                  rows={4}
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  rows={4}
-                  className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                  className="w-full rounded-md border px-3 py-2 text-sm resize-none focus:ring-2 focus:ring-accent"
                 />
               </div>
 
+              {/* Actions */}
               <div className="flex gap-3 pt-2">
                 <Button
                   type="button"
@@ -226,14 +280,7 @@ export function JobApplyForm({ job, isOpen, onClose }: JobApplyFormProps) {
                   disabled={isSubmitting}
                   className="flex-1"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <span className="w-4 h-4 border-2 border-accent-foreground/30 border-t-accent-foreground rounded-full animate-spin mr-2" />
-                      Submitting...
-                    </>
-                  ) : (
-                    "Submit Application"
-                  )}
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
                 </Button>
               </div>
             </form>

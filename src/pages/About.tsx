@@ -69,9 +69,9 @@ const team = [
   },
   {
     name: "Fahad Khan",
-    role: "HR Manager",
+    role: "HR & Director Marketing",
     image: "/images/fahad-hr.jpg",
-    bio: "Experienced HR professional specializing in talent acquisition, employee engagement, and organizational development.",
+    bio: "An executive overseeing HR and marketing, driving talent strategy, company culture, and brand growth.",
   },
 ];
 
